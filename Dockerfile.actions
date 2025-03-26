@@ -8,10 +8,11 @@ RUN apt-get update && apt-get install -y \
     libssl-dev \
     libffi-dev \
     python3-dev \
-    libpq-dev \
-    && pip install --upgrade pip \
-    && pip cache purge \
-    && pip install --no-cache-dir rasa-sdk==3.6.2 -i https://pypi.org/simple --verbose || \
-       pip install --no-cache-dir rasa-sdk==3.6.1 -i https://pypi.org/simple --verbose
+    libpq-dev
+RUN pip install --upgrade pip
+RUN pip cache purge
+RUN pip install --no-cache-dir rasa-sdk==3.6.2 -i https://pypi.org/simple --verbose || \
+    echo "Failed 3.6.2, trying 3.6.1" && \
+    pip install --no-cache-dir rasa-sdk==3.6.1 -i https://pypi.org/simple --verbose
 
 CMD ["rasa", "run", "actions"]
