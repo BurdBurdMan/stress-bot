@@ -1,0 +1,110 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - express_stress
+  - request_joke
+  - request_tips
+  - casual_chat
+  - express_anxiety
+  - seek_support
+  - request_relaxation
+  - dislike_joke
+
+slots:
+  disliked_jokes:
+    type: list
+    initial_value: []
+    influence_conversation: false
+    mappings:
+    - type: custom
+  last_joke_index:
+    type: float
+    initial_value: -1
+    influence_conversation: false
+    mappings:
+    - type: custom
+  joke_count:
+    type: float
+    initial_value: 0
+    influence_conversation: false
+    mappings:
+    - type: custom
+
+
+responses:
+  utter_greet:
+    - text: "Hey! How’s it going?"
+  utter_goodbye:
+    - text: "Take care! Chat again soon if you need."
+  utter_express_stress:
+    - text: "Hey, it’s totally normal to feel stressed with everything going on. Want a joke or some tips to chill out?"
+      buttons:
+        - title: "Joke"
+          payload: "/request_joke"
+        - title: "Tips"
+          payload: "/request_tips"
+  utter_casual_chat:
+    - text: "I’m just chilling here for you. What’s up with you?"
+  utter_iamabot:
+    - text: "Yo, I’m your stress-busting buddy!"
+  utter_express_anxiety:
+  - text: "Anxiety can be tough, but you're not alone. Want to try a breathing exercise or hear a joke?"
+    buttons:
+    - title: "Breathing exercise"
+      payload: "/request_breathing"
+    - title: "Joke"
+      payload: "/request_joke"
+  utter_request_breathing:
+  - text: "Sure! Try this: Inhale deeply through your nose for 4 seconds, hold for 4, then exhale slowly through your mouth for 4. Repeat a few times. Feel better?"
+  utter_seek_support: 
+  - text: "I'm here for you! Let's find a way to ease your mind. How about a quick tip, a breathing exercise, or a joke?"
+    buttons:
+    - title: "Tip"
+      payload: "/request_tips"
+    - title: "Breathing exercise"
+      payload: "/request_breathing"
+    - title: "Joke"
+      payload: "/request_joke"
+  utter_request_relaxation:
+  - text: "Let’s help you relax. How about a quick breathing exercise or a calming tip?"
+    buttons:
+    - title: "Breathing exercise"
+      payload: "/request_breathing"
+    - title: "Tip"
+      payload: "/request_tips"
+  utter_after_tip:
+  - text: "Hope that helps! Want another tip or maybe a joke?"
+    buttons:
+    - title: "Another tip"
+      payload: "/request_tips"
+    - title: "Joke"
+      payload: "/request_joke"
+    - title: "I’m okay now"
+      payload: "/casual_chat"
+  utter_default:
+  - text: "I’m here to help, but I didn’t quite catch that. Are you feeling stressed? Maybe a joke or tip could help!"
+    buttons:
+    - title: "Joke"
+      payload: "/request_joke"
+    - title: "Tip"
+      payload: "/request_tips"
+  utter_dislike_joke:
+  - text: "Oops, my bad! Let's try another one - hope this hits the spot!"
+  utter_after_joke:
+  - text: "Did that make you smile? Want another or something else?"
+    buttons:
+    - title: "Another joke"
+      payload: "/request_joke"
+    - title: "Not funny"
+      payload: "/dislike_joke"
+    - title: "I’m good"
+      payload: "/casual_chat"
+  
+
+actions:
+  - action_tell_joke
+  - action_provide_tip
+  - action_breathing_exercise
+  - action_handle_dislike

@@ -1,0 +1,104 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - yo
+- intent: goodbye
+  examples: |
+    - bye
+    - see you
+    - goodbye
+    - later
+- intent: express_stress
+  examples: |
+    - I’m so stressed
+    - feeling overwhelmed
+    - too much pressure
+    - can’t handle this
+    - school is killing me
+- intent: request_joke
+  examples: |
+    - tell me a joke
+    - I need a laugh
+    - got any jokes?
+    - make me smile
+    - another joke
+    - tell me another
+    - more jokes
+    - keep them coming
+    - hit me with another one
+    - one more joke
+    - again
+    
+- intent: request_tips
+  examples: |
+    - give me some tips
+    - how to relieve stress
+    - stress relief tips
+    - help me relax
+- intent: casual_chat
+  examples: |
+    - how are you
+    - what’s up
+    - sup
+    - how’s it going
+
+- intent: express_anxiety
+  examples: |
+    - I'm feeling anxious
+    - Anxiety is getting to me
+    - I'm worried about everything
+    - I can't stop overthinking
+    - My mind won't calm down
+
+- intent: seek_support
+  examples: |
+    - I need help with my stress
+    - Can you help me relax?
+    - What can I do to feel better?
+    - I'm overwhelmed
+    - How do I manage this?
+
+- intent: seek_support
+  examples: |
+    - Can you give me some advice to cope with stress
+    - I need help with my stress
+    - How do I manage this?
+    - What can I do to feel better?
+    - I’m overwhelmed, help me relax
+    - Any tips for calming down?
+- intent: express_stress
+  examples: |
+    - I’m so stressed
+    - Feeling overwhelmed
+    - Too much pressure
+    - Can’t handle this
+    - I’m freaking out
+    - Everything feels too much
+- intent: express_anxiety
+  examples: |
+    - I’m feeling anxious
+    - Anxiety is getting to me
+    - I’m worried about everything
+    - I can’t stop overthinking
+    - I’m nervous about my exams
+
+- intent: request_relaxation
+  examples: |
+    - Help me relax
+    - I need to calm down
+    - Can you help me chill out?
+    - I want to feel more at ease
+
+- intent: dislike_joke
+  examples: |
+    - That wasn’t funny
+    - Not a good one
+    - That’s lame
+    - Didn’t like that joke
+    - Try again, that sucked
+    - Meh, not funny

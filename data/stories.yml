@@ -1,0 +1,71 @@
+version: "3.1"
+
+stories:
+- story: greet and casual chat
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: casual_chat
+  - action: utter_casual_chat
+- story: express stress and choose joke
+  steps:
+  - intent: express_stress
+  - action: utter_express_stress
+  - intent: request_joke
+  - action: action_tell_joke
+- story: express stress and choose tips
+  steps:
+  - intent: express_stress
+  - action: utter_express_stress
+  - intent: request_tips
+  - action: action_provide_tip
+- story: direct request for joke
+  steps:
+  - intent: request_joke
+  - action: action_tell_joke
+- story: direct request for tips
+  steps:
+  - intent: request_tips
+  - action: action_provide_tip
+- story: goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+- story: express anxiety and choose breathing
+  steps:
+  - intent: express_anxiety
+  - action: utter_express_anxiety
+  - intent: request_breathing
+  - action: utter_request_breathing
+- story: seek support and choose tip
+  steps:
+  - intent: seek_support
+  - action: utter_seek_support
+  - intent: request_tips
+  - action: action_provide_tip
+- story: multiple joke requests
+  steps:
+  - intent: request_joke
+  - action: action_tell_joke
+  - intent: request_joke
+  - action: action_tell_joke
+- story: seek support path
+  steps:
+  - intent: seek_support
+  - action: utter_seek_support
+- story: provide tip and follow up
+  steps:
+  - intent: request_tips
+  - action: action_provide_tip
+  - action: utter_after_tip
+- story: tell joke and follow up
+  steps:
+  - intent: request_joke
+  - action: action_tell_joke
+  - action: utter_after_joke
+- story: joke feedback loop
+  steps:
+  - intent: request_joke
+  - action: action_tell_joke
+  - intent: dislike_joke
+  - action: action_handle_dislike
