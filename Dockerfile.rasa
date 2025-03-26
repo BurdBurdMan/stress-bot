@@ -1,4 +1,4 @@
-FROM python:3.8-slim
+FROM python:3.8
 
 WORKDIR /app
 COPY . /app
@@ -8,7 +8,8 @@ RUN apt-get update && apt-get install -y \
     libssl-dev \
     libffi-dev \
     python3-dev \
+    libpq-dev \
     && pip install --upgrade pip \
-    && pip install rasa==3.6.2 rasa-sdk==3.6.2
+    && pip install rasa==3.6.2 rasa-sdk==3.6.2 --verbose
 
 CMD ["rasa", "run", "--enable-api", "--cors", "*", "--endpoints", "endpoints.yml"]
