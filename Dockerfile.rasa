@@ -10,6 +10,8 @@ RUN apt-get update && apt-get install -y \
     python3-dev \
     libpq-dev \
     && pip install --upgrade pip \
-    && pip install rasa==3.6.2 rasa-sdk==3.6.2 --verbose
+    && pip cache purge \
+    && pip install --no-cache-dir rasa==3.6.2 rasa-sdk==3.6.2 -i https://pypi.org/simple --verbose || \
+       pip install --no-cache-dir rasa==3.6.1 rasa-sdk==3.6.1 -i https://pypi.org/simple --verbose
 
 CMD ["rasa", "run", "--enable-api", "--cors", "*", "--endpoints", "endpoints.yml"]
